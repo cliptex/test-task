@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@mixin font-family {
+    font-family: 'Poppins', sans-serif;
+}
+
+@mixin buttonStyle {
+    border: none;
+    width: 120px;
+    height: 50px;
+    font-size: 1.5rem;
+}
+
+@mixin buttonShadow {
+    box-shadow: 0 0 0 5px #3b83f65f;
+}
+
+@mixin dflex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin positionAbs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+@mixin welcomeAnimation {
+    animation: slide-up 2.5s linear forwards;
+    -webkit-animation: slide-up 2.5s linear forwards;
+}

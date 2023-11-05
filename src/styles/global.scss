@@ -1,0 +1,92 @@
+@import './mixins';
+@import './variables';
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    @include font-family;
+    cursor: pointer;
+    background-color: $color3
+}
+
+.welcome-container {
+    @include dflex;
+    @include positionAbs;
+    @include welcomeAnimation;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    opacity: 1;
+    @keyframes slide-up {
+    0% { opacity: 1; }
+    75% { opacity: 1; z-index: 2;}
+    100% { opacity: 0; z-index: -1;}
+    
+    }
+
+    h1 {
+        color: $color1;
+        font-size: 8rem;
+        @media (max-width: 768px) {
+        font-size: 4rem;
+        }
+    }
+}
+
+.container {
+    @include dflex;
+    height: 50vh;
+    text-align: center;
+    gap: 1rem;
+
+    .text {
+        color: $color1;
+        font-size: 3rem;
+        text-transform: uppercase;
+        animation: fade 11.5s infinite;
+        -webkit-animation: fade 11.5s infinite;
+        @keyframes fade{
+            0% { opacity: 0;}
+            25% { opacity: 1;}
+            100% { opacity: 1;}
+        }
+        @media (max-width:768px) {
+            display: flex;
+            flex-direction: column;
+            span:nth-child(2) {
+                display: none;
+            }
+        }
+}
+    .button-group {
+        display: flex;
+        gap: 1rem;
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+        button:not(#result) {
+            @include buttonStyle;
+            background-color: transparent;
+            color: $color1;
+            border-radius: 8px;
+            transition: .3s;
+            cursor: pointer;
+            border: 1px solid $color1;
+        
+            &:hover {
+                background-color: $activeButtonColor;
+                @include buttonShadow;
+                color: $color1;
+                border: none
+              }
+          }
+        
+        #result {
+            @include buttonStyle;
+            color: $color1;
+            background-color: transparent;
+        }
+    } 
+}
